@@ -47,7 +47,7 @@ All the models can be found in the models directory created using mongoose.
 
 * imgURL (String)
 
-### User Schema
+### User Schema:
 
 * email (String)
 
