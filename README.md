@@ -22,7 +22,10 @@ To run this application, you have to set your own environmental variables. For s
 
 ## Technology
 
-s   qsqs
+* Node.js
+* Express
+* MongoDB
+* Mongoose
 
 ## Features
 
