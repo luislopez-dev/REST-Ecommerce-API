@@ -11,7 +11,7 @@
 
 ## Introduction
 
-Ecommerce back-end to implemet with fronted platforms. 
+Ecommerce back-end to implement with fronted platforms. 
 
 ## Run
 
