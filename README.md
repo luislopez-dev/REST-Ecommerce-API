@@ -13,3 +13,18 @@
 
 szamsnknas as mk lmsa lmas  lm
 
+## Technology
+
+s   qsqs
+
+## Features
+
+wdwd
+
+## Database model
+
+dqwd
+
+## Licence
+
+sss
