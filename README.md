@@ -33,4 +33,4 @@ dqwd
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 * MIT License
-* Copyright 2020 © Luis Lopez
+* Copyright 2021 © Luis Lopez
