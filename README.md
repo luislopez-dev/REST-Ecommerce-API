@@ -15,7 +15,10 @@ Ecommerce back-end to implement with fronted platforms.
 
 ## Run
 
-aaaaa
+To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
+
+* MONGO_URI: this is the connection string of your MongoDB Atlas database.
+
 
 ## Technology
 
