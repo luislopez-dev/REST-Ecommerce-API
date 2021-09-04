@@ -35,7 +35,7 @@ To run this application, you have to set your own environmental variables. For s
 
 All the models can be found in the models directory created using mongoose.
 
-### Product schema:
+### Product Schema:
 
 * name (String)
 
@@ -46,6 +46,11 @@ All the models can be found in the models directory created using mongoose.
 * ammount (Number)
 
 * imgURL (String)
+
+### User Schema
+
+* email (String)
+* password (String)
 
 ## Licence
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
