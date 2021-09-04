@@ -28,4 +28,4 @@ dqwd
 ## Licence
 
 * MIT License
-* Copyright 2020 © Maryam Aljanabi
+* Copyright 2020 © Luis Lopez
