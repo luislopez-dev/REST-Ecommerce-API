@@ -36,10 +36,6 @@ exports.login = (req, res, next) => {
 
       if(user){
 
-        // req.session.isLoggedIn = true;
-        // req.session.user = user;
-        // req.session.save();
-
         console.log("Correct credentials !");
         var token = jwt.sign({userID: user._id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
 
@@ -51,4 +47,8 @@ exports.login = (req, res, next) => {
 
     )
     .catch(err => {throw new Error(err.message)} );
+}
+
+exports.logoutUser = (req, res, next) => {
+  
 }
