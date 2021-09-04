@@ -11,7 +11,7 @@
 
 ## Introduction
 
-szamsnknas as mk lmsa lmas  lm
+Ecommerce back-end to implemet with fronted platforms. 
 
 ## Run
 
