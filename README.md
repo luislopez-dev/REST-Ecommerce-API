@@ -50,6 +50,7 @@ All the models can be found in the models directory created using mongoose.
 ### User Schema
 
 * email (String)
+
 * password (String)
 
 ## Licence
