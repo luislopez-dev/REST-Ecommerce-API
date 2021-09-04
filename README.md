@@ -27,4 +27,5 @@ dqwd
 
 ## Licence
 
-sss
+* MIT License
+* Copyright 2020 © Maryam Aljanabi
