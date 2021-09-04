@@ -29,11 +29,23 @@ To run this application, you have to set your own environmental variables. For s
 
 ## Features
 
-wdwd
+...
 
 ## Database model
 
-dqwd
+All the models can be found in the models directory created using mongoose.
+
+### Product schema:
+
+* name (String)
+
+* price (Number)
+
+* description (String)
+
+* ammount (Number)
+
+* imgURL (String)
 
 ## Licence
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
