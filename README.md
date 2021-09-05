@@ -1,4 +1,4 @@
-# Ecommerce back-end
+# Ecommerce API
 
 ## Table of contents
 
