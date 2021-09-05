@@ -5,7 +5,7 @@
 * [Introduction](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#introduction)
 * [Run](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#run)
 * [Technology](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#technology)
-* [Features](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#features)
+* [Endpoints](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#endpoints)
 * [Database model](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#database-model)
 * [Licence](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#licence)
 
@@ -27,7 +27,7 @@ To run this application, you have to set your own environmental variables. For s
 * MongoDB
 * Mongoose
 
-## Features
+## Endpoints
 
 ...
 
