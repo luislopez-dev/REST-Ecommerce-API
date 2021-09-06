@@ -29,7 +29,7 @@ To run this application, you have to set your own environmental variables. For s
 
 ## Endpoints
 
-> `POST` Creates a new product 
+> Method: `POST` URL`/` Creates a new product 
 
 ## Database model
 
