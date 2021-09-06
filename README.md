@@ -5,7 +5,6 @@
 * [Introduction](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#introduction)
 * [Run](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#run)
 * [Technology](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#technology)
-* [Endpoints](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#endpoints)
 * [Database model](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#database-model)
 * [Licence](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#licence)
 
@@ -27,9 +26,6 @@ To run this application, you have to set your own environmental variables. For s
 * MongoDB
 * Mongoose
 
-## Endpoints
-
-* `POST` ** / ** Creates a new product 
 
 ## Database model
 
