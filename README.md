@@ -29,7 +29,7 @@ To run this application, you have to set your own environmental variables. For s
 
 ## Endpoints
 
-* ==x==
+* <mark>Marked text</mark>
 
 ## Database model
 
