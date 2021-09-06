@@ -29,7 +29,7 @@ To run this application, you have to set your own environmental variables. For s
 
 ## Endpoints
 
-* - ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
+* `POST`
 
 ## Database model
 
