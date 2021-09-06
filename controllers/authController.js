@@ -1,6 +1,5 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const expressJwt = require('express-jwt');
 
 exports.register = (req, res, next) => {
 

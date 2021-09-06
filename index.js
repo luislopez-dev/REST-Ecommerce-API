@@ -11,8 +11,10 @@ const MONGO_URL = process.env.MONGO_URL;
 
 app.use(cors())
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/auth', authRouter);
-app.use('/product', productRouter);
+app.use('', productRouter);
+
 mongoose.set('useFindAndModify', false);
 mongoose.connect(MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true})
  .then( res => {
@@ -22,4 +24,3 @@ mongoose.connect(MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true})
  .catch(e => {
     throw new Error(e.message);
   });
-

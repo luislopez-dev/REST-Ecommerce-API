@@ -1,6 +1,5 @@
 const Product = require('../models/Product');
 
-
 exports.addProduct = (req, res, next) => {
 
   const name = req.body.name;
@@ -22,15 +21,12 @@ exports.addProduct = (req, res, next) => {
     console.log("Item created succesfully !");
     return;
   })
-  .catch(err => {
-    console.log(err.message);
+  .catch(e => {
+    console.error(e.message)
   });
-
 }
 
 exports.editProduct = (req, res, next) => {
-
-  console.log(req.body);
 
   const name = req.body.name;
   const price = req.body.price;
@@ -51,22 +47,25 @@ exports.editProduct = (req, res, next) => {
     .then( res => {
       console.log("Item updated successfully");
     })
-    .catch( err => {
-      console.log(err.message);
+    .catch( e => {
+      console.error(e.message)
     });
 
 }
 
 exports.getProducts = async (req, res, next) => {
-
-  let start = (Number(req.params["page"]) - 1) * 8;
   
-  Product.find().skip(start).limit(9)
+  const offset = Number(req.body.offset);
+  const limit = Number(req.body.limit);
+ 
+  Product.find().skip(offset).limit(limit)
 
   .then( products => {
     res.json(products);
   })
-  .catch();
+  .catch(e => {
+    console.error(e.message)
+  });
 }
 
 exports.deleteProduct = (req, res, next) =>{
@@ -77,7 +76,7 @@ exports.deleteProduct = (req, res, next) =>{
     console.log("Product destroyed");
   })
   .catch(e => {
-    console.log(e.message);
+    console.error(e.message)
   });
 
 }
@@ -88,23 +87,8 @@ exports.getSingleProduct = (req, res, next) =>{
   Product.findById(productId)
   .then(product => {
     res.json(product);
-  });
-}
-
-exports.getCount = (req, res, next) => {
-
-  Product.countDocuments().then(count => {
-    res.json(count);
-  });  
-}
-
-exports.getItems = (req, res, next) => {
- 
-  const item = req.params.item;
-
-  Product.find({name: {$regex: item, $options: 'i'} })
-  .then( items => {
-    res.json(items);
-  });
-  
+  })
+  .catch(e => {
+    console.error(e.message)
+  })
 }
