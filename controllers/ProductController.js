@@ -54,7 +54,7 @@ exports.editProduct = (req, res, next) => {
 }
 
 exports.getProducts = async (req, res, next) => {
-  
+    
   const offset = Number(req.body.offset);
   const limit = Number(req.body.limit);
  

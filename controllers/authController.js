@@ -35,13 +35,17 @@ exports.login = (req, res, next) => {
 
       if(user){
 
-        console.log("Correct credentials !");
-        var token = jwt.sign({userID: user._id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
+        let token = jwt.sign({user:user}, 'secret', {expiresIn: '24h'});
 
-        return res.send({token});
-      }
+        res.json({ok:true, token});
 
-      return console.log("Wrong credentials");
+      }else{
+
+        return res.status(400).send({
+          ok:false,
+          err: {message: "Wrong credentials"}
+        });
+      }      
     }
 
     )
