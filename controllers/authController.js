@@ -23,6 +23,7 @@ exports.register = (req, res, next) => {
       .catch( err => {
           throw new Error(err.message);
       });
+
 }
 
 exports.login = (req, res, next) => {
@@ -37,11 +38,14 @@ exports.login = (req, res, next) => {
 
         let token = jwt.sign({user:user}, 'secret', {expiresIn: '24h'});
 
-        res.json({ok:true, token});
+        res.status(200).send({
+          ok:true, 
+          token
+        });
 
       }else{
 
-        return res.status(400).send({
+        res.status(400).send({
           ok:false,
           err: {message: "Wrong credentials"}
         });

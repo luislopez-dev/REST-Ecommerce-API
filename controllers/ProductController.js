@@ -35,6 +35,7 @@ exports.editProduct = (req, res, next) => {
   const imgURL = req.body.imgURL;
   const productId = req.body._id;
   
+  
   Product.findById(productId)
     .then( product => {      
       product.name = name;
@@ -57,9 +58,8 @@ exports.getProducts = async (req, res, next) => {
     
   const offset = Number(req.body.offset);
   const limit = Number(req.body.limit);
- 
-  Product.find().skip(offset).limit(limit)
 
+  Product.find().skip(offset).limit(limit)
   .then( products => {
     res.json(products);
   })
