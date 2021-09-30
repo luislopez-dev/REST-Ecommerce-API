@@ -54,6 +54,10 @@ All the models can be found in the models directory created using mongoose.
 
 * / - Create a new product
 
+| Attempt | #1  | #2  |
+| :---:   | :-: | :-: |
+| Seconds | 301 | 283 |
+
 #### GET
 
 * /:productId - Get data of a speciic product 
