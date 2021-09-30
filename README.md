@@ -50,9 +50,7 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-#### POST
-
-* / - Create a new product
+#### 'POST'
 
 | Attempt | #1  | #2  |
 | :---:   | :-: | :-: |
