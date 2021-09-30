@@ -52,11 +52,19 @@ All the models can be found in the models directory created using mongoose.
 
 #### POST
 
+* / - Create a new product
+
 #### GET
+
+* /:productId - Get data of a speciic product 
 
 #### PUT
 
+* / - Update product
+
 #### DELETE
+
+* /:productId - Delete product
 
 ## Licence
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

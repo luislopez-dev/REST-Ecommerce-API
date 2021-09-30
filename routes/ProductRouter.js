@@ -13,7 +13,7 @@ router.get('/:productId', verifyToken, productController.getSingleProduct);
 router.delete('/:productId', verifyToken, productController.deleteProduct);
 
 // Update product
-router.put('', verifyToken, productController.editProduct);
+router.put('/', verifyToken, productController.editProduct);
 
 // Retrieve data from range of products
 router.post('/products', verifyToken, productController.getProducts);
