@@ -1,61 +1,74 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 exports.register = (req, res, next) => {
+  
+  const email = req.body.email;
+  const password = req.body.password;
 
-    const email = req.body.email;
-    const password = req.body.password;
+  User.findOne({ email:email })
+    .then( userDoc => {
 
-    User.findOne({ email:email })
-     .then( userDoc => {
-
-       if(userDoc){
-          console.log("user already exists");
-          return;
-       }
-       const user = new User({
-            email: email,
-            password: password
-       });
-       console.log("Use registered successfully !");
-       return user.save();
+      if(userDoc){
+        const error = new Error('User already exists');
+        error.statusCode = 409;
+        throw error; 
+      }
+      bcrypt.hash(password, 12)
+      .then(hashedPw => {
+        const user = new User({ email: email, password: hashedPw });
+        return user.save();
       })
-      .catch( err => {
-          throw new Error(err.message);
-      });
-
+      .then(item => {
+        res.status(201).json({message: 'User created !', userId: item._id})
+      })
+      .catch(err => {
+        if(!err.statusCode){
+          err.statusCode = 500;
+        }
+        next(err);
+      })
+    })
+    .catch( err => {
+      if(!err.statusCode){
+        err.statusCode = 500;          
+      }
+        next(err);
+    });
 }
 
-exports.login = (req, res, next) => {
+exports.login = async (req, res, next) => {
     
     const email = req.body.email;
     const password = req.body.password;
-
-    User.findOne({email:email, password:password})
+    let loadedUser;
+    
+    User.findOne({email:email})
     .then( user => {
-
-      if(user){
-
-        let token = jwt.sign({user:user}, 'secret', {expiresIn: '24h'});
-
-        res.status(200).send({
-          ok:true, 
-          token
-        });
-
-      }else{
-
-        res.status(400).send({
-          ok:false,
-          err: {message: "Wrong credentials"}
-        });
-      }      
-    }
-
-    )
-    .catch(err => {throw new Error(err.message)} );
-}
-
-exports.logoutUser = (req, res, next) => {
-  
+      if(!user){
+        const error = new Error("A user with this email address doesn't exist");
+        error.statusCode = 409;
+        throw error; 
+      }
+      loadedUser = user;
+      return bcrypt.compare(password, user.password);                   
+    })
+    .then(isEqual => {
+      if(!isEqual){                      
+        const error = new Error('Wrong password!');
+        error.statusCode = 401;
+        throw error;
+      }
+      let token = jwt.sign({email:loadedUser.email, 
+                            userId: loadedUser._id.toString()}, 
+                            'secret', {expiresIn: '24h'});
+      res.status(200).send({ok:true, token, userId: loadedUser._id.toString()});
+    })
+    .catch(err => {  
+      if(!err.statusCode){
+        err.statusCode = 500;          
+      }
+      next(err);
+    });
 }
