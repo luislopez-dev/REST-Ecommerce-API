@@ -6,18 +6,18 @@
 * [Run](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#run)
 * [Technology](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#technology)
 * [Database model](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#database-model)
+* [Endpoints] (https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#endpoints)
 * [Licence](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#licence)
 
 ## Introduction
 
-Ecommerce back-end to implement with fronted platforms. 
+Ecommerce REST API to implement with fronted platforms. 
 
 ## Run
 
 To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
 
 * MONGO_URI: this is the connection string of your MongoDB Atlas database.
-
 
 ## Technology
 
@@ -26,12 +26,11 @@ To run this application, you have to set your own environmental variables. For s
 * MongoDB
 * Mongoose
 
-
 ## Database model
 
 All the models can be found in the models directory created using mongoose.
 
-### Product Schema:
+## Product Schema:
 
 * name (String)
 
@@ -43,11 +42,21 @@ All the models can be found in the models directory created using mongoose.
 
 * imgURL (String)
 
-### User Schema:
+## User Schema:
 
 * email (String)
 
 * password (String)
+
+## Endpoints
+
+#### POST
+
+#### GET
+
+#### PUT
+
+#### DELETE
 
 ## Licence
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

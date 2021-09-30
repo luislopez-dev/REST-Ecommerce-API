@@ -12,7 +12,7 @@ router.get('/:productId', verifyToken, productController.getSingleProduct);
 // Delete product
 router.delete('/:productId', verifyToken, productController.deleteProduct);
 
-// Update product ---- pending to fix
+// Update product
 router.put('', verifyToken, productController.editProduct);
 
 // Retrieve data from range of products
