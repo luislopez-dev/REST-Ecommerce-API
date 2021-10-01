@@ -73,7 +73,7 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
-### Create a new product
+### Create new product
 
 ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
 
