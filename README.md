@@ -6,7 +6,7 @@
 * [Run](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#run)
 * [Technology](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#technology)
 * [Database model](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#database-model)
-* [Endpoints] (https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#endpoints)
+* [Endpoints](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#endpoints)
 * [Licence](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#licence)
 
 ## Introduction
@@ -50,11 +50,23 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-#### `POST`
+#### `POST` /api
 
-| Attempt | #1  | #2  |
-| :---:   | :-: | :-: |
-| Seconds | 301 | 283 |
+Create a new product
+
+Parameters
+
+| Name | required  | type  | Description |
+| :---:| :-: | :-: | :-: |
+| name | true | String | | name of the new product
+| :---:   | :-: | :-: | :-: | 
+| price | true | Number | | | price of the new product
+| :---:   | :-: | :-: | :-: |
+| description | true | String | description of the new product
+| :---:   | :-: | :-: | :-: |
+| ammount | true | Number | Available ammount of the product
+| :---:   | :-: | :-: | :-: |
+| imgURL | true | String | Image URL of the new product
 
 #### GET
 
