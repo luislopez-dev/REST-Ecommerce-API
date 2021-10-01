@@ -10,7 +10,7 @@ exports.register = (req, res, next) => {
 
   User.findOne({ email:email })
     .then( userDoc => {
-
+      
       if(userDoc){
         const error = new Error('User already exists');
         error.statusCode = 409;
@@ -21,8 +21,9 @@ exports.register = (req, res, next) => {
         const user = new User({ email: email, password: hashedPw, name:name });
         return user.save();
       })
-      .then(item => {
-        res.status(201).json({message: 'User created !', userId: item._id})
+      .then(user => {
+        let token = jwt.sign({email:user.email, userId: user._id.toString()}, 'secret', {expiresIn: '24h'});
+        res.status(200).json({ok:true, message: 'User created !', token, userId: user._id.toString()});
       })
       .catch(err => {
         if(!err.statusCode){

@@ -19,6 +19,8 @@ To run this application, you have to set your own environmental variables. For s
 
 * MONGO_URI: this is the connection string of your MongoDB Atlas database.
 
+* PORT: this is the port number for running the node.js server. 
+
 ## Technology
 
 * Node.js
