@@ -7,7 +7,7 @@
 * [Technology](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#technology)
 * [Database model](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#database-model)
 * [Endpoints](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#endpoints)
-* [Licence](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#licence)
+* [Licence](#licence)
 
 ## Introduction
 
