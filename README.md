@@ -69,6 +69,7 @@ Parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
+| name | true | String | User name |
 | email | true  | String | User email address |
 | password | true | String | User password |
 

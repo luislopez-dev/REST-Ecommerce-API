@@ -6,6 +6,7 @@ exports.register = (req, res, next) => {
   
   const email = req.body.email;
   const password = req.body.password;
+  const name = req.body.name;
 
   User.findOne({ email:email })
     .then( userDoc => {
@@ -17,7 +18,7 @@ exports.register = (req, res, next) => {
       }
       bcrypt.hash(password, 12)
       .then(hashedPw => {
-        const user = new User({ email: email, password: hashedPw });
+        const user = new User({ email: email, password: hashedPw, name:name });
         return user.save();
       })
       .then(item => {
