@@ -93,7 +93,7 @@ Parameters:
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-### Get data of a speciic product
+### Get details of a specic product
 
 ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
 
