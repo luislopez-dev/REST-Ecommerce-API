@@ -50,7 +50,7 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-### User login
+1. ### User login
 
 #### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
 
@@ -61,9 +61,9 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
-### User registration
+2. ### User registration
 
-#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
+![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
 
 Parameters:
 
@@ -73,7 +73,7 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
-1. ### Create a new product
+3. ### Create a new product
 
 ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
 
@@ -89,15 +89,15 @@ Parameters:
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-### Get data of a speciic product
+4. ### Get data of a speciic product
 
-#### ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
+![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
 
 * Requires token-based authentication
 
-### Updates product
+5. ### Update product
 
-#### ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
+![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
 
 * Requires token-based authentication.
 
@@ -112,9 +112,9 @@ Parameters:
 | ammount | true | Number | New product available ammount
 | imgURL | true | String | New product image URL
 
-### Deletes product
+### Delete product
 
-#### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
+![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
 
 * Requires token-based authentication
 
