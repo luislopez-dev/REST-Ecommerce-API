@@ -50,7 +50,7 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-### `POST` /api
+### [POST](https://img.shields.io/badge/-POST-blue) /api
 
 Creates a new product
 
