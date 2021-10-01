@@ -83,7 +83,7 @@ Parameters
 | ammount | true | Number | New product available ammount
 | imgURL | true | String | New product image URL
 
-### [![DELETE](https://img.shields.io/badge/METHOD-DELETE-red)] /api/:productId
+### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) /api/:productId
 
 Delete product
 
