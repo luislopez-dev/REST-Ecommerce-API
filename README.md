@@ -64,11 +64,11 @@ Parameters
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-### `GET` /api/:productId  
+### ![GET](https://img.shields.io/badge/METHOD-POST-brightgreen)  /api/:productId  
 
 Get data of a speciic product
 
-### `PUT` /api
+### ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) /api
 
 Update product
 
@@ -83,7 +83,7 @@ Parameters
 | ammount | true | Number | New product available ammount
 | imgURL | true | String | New product image URL
 
-### `DELETE` /api/:productId
+### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) /api/:productId
 
 Delete product
 
