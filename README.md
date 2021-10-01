@@ -1,4 +1,4 @@
-# Ecommerce REST API.
+# Ecommerce REST API
 
 ## Table of contents
 
