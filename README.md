@@ -58,9 +58,9 @@ Parameters
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
-| name | true | String | name of the new product
-| price | true | Number | price of the new product
-| description | true | String | description of the new product
+| name | true | String | Name of the new product
+| price | true | Number | Price of the new product
+| description | true | String | Description of the new product
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
