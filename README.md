@@ -50,7 +50,9 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
+### User login
+
+#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
 
 User login
 
