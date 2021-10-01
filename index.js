@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('combined', { stream:accessLogStream }));
 app.use('api/auth', authRouter);
 app.use('/api', productRouter);
+
 app.use((error, req, res, next) => {
   const status = error.statusCode || 500;
   const message = error.message;

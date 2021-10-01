@@ -22,7 +22,7 @@ exports.register = (req, res, next) => {
         return user.save();
       })
       .then(user => {
-        let token = jwt.sign({email:user.email, userId: user._id.toString()}, 'secret', {expiresIn: '24h'});
+        const token = jwt.sign({email:user.email, userId: user._id.toString()}, 'secret', {expiresIn: '24h'});
         res.status(200).json({ok:true, message: 'User created !', token, userId: user._id.toString()});
       })
       .catch(err => {
@@ -62,8 +62,7 @@ exports.login = async (req, res, next) => {
         error.statusCode = 401;
         throw error;
       }
-      let token = jwt.sign({email:loadedUser.email, 
-                            userId: loadedUser._id.toString()}, 
+      let token = jwt.sign({userId: loadedUser._id.toString()}, 
                             'secret', {expiresIn: '24h'});
       res.status(200).send({ok:true, token, userId: loadedUser._id.toString()});
     })
