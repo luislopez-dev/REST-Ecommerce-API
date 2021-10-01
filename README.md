@@ -50,7 +50,7 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-### `POST` */api*
+### `POST` /api
 
 Creates a new product
 
@@ -64,11 +64,11 @@ Parameters
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-### `GET` */api/:productId*  
+### `GET` /api/:productId  
 
 Get data of a speciic product
 
-### `PUT` */api*
+### `PUT` /api
 
 Update product
 
@@ -83,7 +83,7 @@ Parameters
 | ammount | true | Number | New product available ammount
 | imgURL | true | String | New product image URL
 
-### `DELETE` */api/:productId*
+### `DELETE` /api/:productId
 
 Delete product
 
