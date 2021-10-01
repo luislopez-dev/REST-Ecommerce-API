@@ -50,7 +50,7 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-### ![POST](https://img.shields.io/badge/METHOD-POST-blue) /api
+### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
 
 Creates a new product
 
@@ -64,11 +64,11 @@ Parameters
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-### ![GET](https://img.shields.io/badge/METHOD-POST-brightgreen)  /api/:productId  
+### ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
 
 Get data of a speciic product
 
-### ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) /api
+### ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
 
 Update product
 
@@ -83,7 +83,7 @@ Parameters
 | ammount | true | Number | New product available ammount
 | imgURL | true | String | New product image URL
 
-### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) /api/:productId
+### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
 
 Delete product
 
