@@ -11,7 +11,7 @@
 
 ## Introduction
 
-Ecommerce REST API to implement with fronted platforms. 
+Ecommerce REST API to implement with any fronted platform. 
 
 ## Run
 
