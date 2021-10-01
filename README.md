@@ -54,8 +54,6 @@ All the models can be found in the models directory created using mongoose.
 
 #### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
 
-User login
-
 Parameters:
 
 | Name | required  | type  | Description |
