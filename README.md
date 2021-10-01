@@ -17,9 +17,9 @@ Ecommerce REST API to implement with any fronted platform.
 
 To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
 
-* MONGO_URI= this is the connection string of your MongoDB Atlas database.
+* MONGO_URI=  This is the connection string of your MongoDB Atlas database.
 
-* PORT= this is the port number for running the node.js server. 
+* PORT=  This is the port number for running the node.js server. 
 
 ## Technology
 
