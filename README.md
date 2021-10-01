@@ -54,7 +54,7 @@ All the models can be found in the models directory created using mongoose.
 
 User login
 
-Parameters
+Parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
@@ -67,7 +67,7 @@ Creates a new product
 
 * Requires token-based authentication
 
-Parameters
+Parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
@@ -89,7 +89,7 @@ Updates product
 
 * Requires token-based authentication.
 
-Parameters
+Parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
