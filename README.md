@@ -64,17 +64,26 @@ Parameters
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-#### GET
+#### `GET` /api/:productId  
 
-* /:productId - Get data of a speciic product 
+Get data of a speciic product
 
-#### PUT
+#### `PUT` /api
 
-* / - Update product
+Parameters
 
-#### DELETE
+| Name | required  | type  | Description |
+| :---:| :-:| :-:| :-:|
+| productId | true | String | Description |
+| name | true | String | New product name
+| price | true | Number | New product price
+| description | true | String | New product description
+| ammount | true | Number | New product available ammount
+| imgURL | true | String | New product image URL
 
-* /:productId - Delete product
+#### `DELETE` /api/:productId
+
+Delete product
 
 ## Licence
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
