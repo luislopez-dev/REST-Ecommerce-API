@@ -50,7 +50,7 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-* ### User login
+### User login
 
 #### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
 
@@ -61,7 +61,7 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
-* ### User registration
+### User registration
 
 ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
 
@@ -89,13 +89,13 @@ Parameters:
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-* ### Get data of a speciic product
+### Get data of a speciic product
 
 ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
 
 * Requires token-based authentication
 
-* ### Update product
+### Update product
 
 ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
 
@@ -112,7 +112,7 @@ Parameters:
 | ammount | true | Number | New product available ammount
 | imgURL | true | String | New product image URL
 
-* ### Delete product
+### Delete product
 
 ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
 
