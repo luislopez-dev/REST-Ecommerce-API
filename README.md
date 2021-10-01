@@ -30,7 +30,7 @@ To run this application, you have to set your own environmental variables. For s
 
 All the models can be found in the models directory created using mongoose.
 
-## Product Schema:
+### Product Schema:
 
 * name (String)
 
@@ -42,7 +42,7 @@ All the models can be found in the models directory created using mongoose.
 
 * imgURL (String)
 
-## User Schema:
+### User Schema:
 
 * email (String)
 
