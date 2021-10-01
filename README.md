@@ -61,6 +61,18 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
+### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
+
+User registration
+
+Parameters:
+
+| Name | required  | type  | Description |
+| :---:| :-:| :-:| :-:|
+| email | true  | String | User email address |
+| password | true | String | User password |
+
+
 ### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
 
 Creates a new product
