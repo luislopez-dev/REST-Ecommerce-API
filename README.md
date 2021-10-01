@@ -61,9 +61,9 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
-### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
+### User registration
 
-User registration
+#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
 
 Parameters:
 
@@ -73,10 +73,9 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
+### Create a new product
 
-### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
-
-Creates a new product
+#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
 
 * Requires token-based authentication
 
@@ -90,15 +89,15 @@ Parameters:
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
-### ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
+### Get data of a speciic product
 
-Get data of a speciic product
+#### ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
 
 * Requires token-based authentication
 
-### ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
+### Updates product
 
-Updates product
+#### ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
 
 * Requires token-based authentication.
 
@@ -113,9 +112,9 @@ Parameters:
 | ammount | true | Number | New product available ammount
 | imgURL | true | String | New product image URL
 
-### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
+### Deletes product
 
-Deletes product
+#### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
 
 * Requires token-based authentication
 
