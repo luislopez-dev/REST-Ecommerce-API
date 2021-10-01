@@ -52,7 +52,7 @@ All the models can be found in the models directory created using mongoose.
 
 ### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
 
-Creates a new product
+Creates a new product (requires token authentication)
 
 Parameters
 
@@ -66,11 +66,11 @@ Parameters
 
 ### ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
 
-Get data of a speciic product
+Get data of a speciic product (requires token authentication)
 
 ### ![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
 
-Update product
+Updates product (requires token authentication)
 
 Parameters
 
@@ -85,7 +85,7 @@ Parameters
 
 ### ![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
 
-Delete product
+Deletes product (requires token authentication)
 
 ## Licence
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
