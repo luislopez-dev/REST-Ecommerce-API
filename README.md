@@ -73,9 +73,9 @@ Parameters:
 | email | true  | String | User email address |
 | password | true | String | User password |
 
-### Create a new product
+1. ### Create a new product
 
-#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
+![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
 
 * Requires token-based authentication
 
