@@ -1,4 +1,4 @@
-# Ecommerce REST API
+# Ecommerce REST API.
 
 ## Table of contents
 
@@ -44,7 +44,7 @@ All the models can be found in the models directory created using mongoose.
 
 ### User Schema:
 
-* name (String)
+* name (String) 
 
 * email (String)
 
