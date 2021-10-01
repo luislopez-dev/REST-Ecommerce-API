@@ -2,11 +2,11 @@
 
 ## Table of contents
 
-* [Introduction](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#introduction)
-* [Run](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#run)
-* [Technology](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#technology)
-* [Database model](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#database-model)
-* [Endpoints](https://github.com/Luis-Rene-Lopez/Eccomerce-Backend-Node#endpoints)
+* [Introduction](#introduction)
+* [Run](#run)
+* [Technology](#technology)
+* [Database model](#database-model)
+* [Endpoints](#endpoints)
 * [Licence](#licence)
 
 ## Introduction
