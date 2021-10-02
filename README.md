@@ -56,7 +56,7 @@ All the models can be found in the models directory created using mongoose.
 
 ### User registration
 
-![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
+![POST](https://img.shields.io/badge/METHOD-POST-blue) **`/api/auth/register`**
 
 Parameters:
 
@@ -68,7 +68,7 @@ Parameters:
 
 ### User login
 
-#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
+![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
 
 Parameters:
 
