@@ -5,6 +5,7 @@
 ## Table of contents
 
 * [Introduction](#introduction)
+* [Installation](#installation)
 * [Run](#run)
 * [Technology](#technology)
 * [Database model](#database-model)
@@ -14,6 +15,12 @@
 ## Introduction
 
 Ecommerce REST API to implement with any fronted platform. 
+
+## Installation
+
+1. Clone this repository: **git clone https://github.com/Luis-Rene-Lopez/Ecommerce-REST-API**
+
+2. Install the project dependencies: **npm install**
 
 ## Run
 
