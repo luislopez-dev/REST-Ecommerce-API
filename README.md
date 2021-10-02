@@ -112,7 +112,7 @@ Parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
-| productId | true | String | Description |
+| productId | true | String | Product ID |
 | name | true | String | New product name
 | price | true | Number | New product price
 | description | true | String | New product description

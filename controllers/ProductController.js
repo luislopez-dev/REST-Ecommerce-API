@@ -34,7 +34,7 @@ exports.editProduct = (req, res, next) => {
   const description = req.body.description;
   const ammount = req.body.ammount;
   const imgURL = req.body.imgURL;
-  const productId = req.body._id;  
+  const productId = req.body.productId;  
   
   Product.findById(productId)
   .then( product => {      
