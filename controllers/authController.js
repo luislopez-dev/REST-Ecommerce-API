@@ -49,7 +49,7 @@ exports.login = async (req, res, next) => {
     User.findOne({email:email})
     .then( user => {
       if(!user){
-        const error = new Error("A user with this email address doesn't exist");
+        const error = new Error("User not found");
         error.statusCode = 409;
         throw error; 
       }

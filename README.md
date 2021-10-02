@@ -1,5 +1,7 @@
 # Ecommerce REST API
 
+![alt text](https://removal.ai/wp-content/uploads/2020/08/AI-Background-Removal.jpg)
+
 ## Table of contents
 
 * [Introduction](#introduction)
