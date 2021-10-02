@@ -64,7 +64,7 @@ To run this application, you have to set your own environmental variables. For s
 
 * PORT=  This is the port number for running the Node.js server. 
 
-You can start the application by running `npm start`
+You can start the API server by running `npm start`
 
 ## Endpoints
 
