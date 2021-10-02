@@ -1,6 +1,6 @@
 # Ecommerce REST API
 
-![alt text](https://removal.ai/wp-content/uploads/2020/08/AI-Background-Removal.jpg)
+![alt text](https://news.america-digital.com/wp-content/uploads/2021/04/El-boom-del-eCommerce-tendencias-para-el-2021.jpg)
 
 ## Table of contents
 
