@@ -60,7 +60,7 @@ All the models can be found in the models directory created using mongoose.
 
 ![POST](https://img.shields.io/badge/METHOD-POST-blue) **`/api/auth/register`**
 
-Parameters:
+Body parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
@@ -72,7 +72,7 @@ Parameters:
 
 ![POST](https://img.shields.io/badge/METHOD-POST-blue) **`/api/auth/login`**
 
-Parameters:
+Body parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
@@ -86,7 +86,7 @@ Parameters:
 
 * Requires token-based authentication
 
-Parameters:
+Body parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
@@ -108,7 +108,7 @@ Parameters:
 
 * Requires token-based authentication.
 
-Parameters:
+Body parameters:
 
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
