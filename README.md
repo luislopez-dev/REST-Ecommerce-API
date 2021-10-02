@@ -68,7 +68,7 @@ Parameters:
 
 ### User login
 
-![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
+![POST](https://img.shields.io/badge/METHOD-POST-blue) **`/api/auth/login`**
 
 Parameters:
 
@@ -80,7 +80,7 @@ Parameters:
 
 ### Create new product
 
-![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api`
+![POST](https://img.shields.io/badge/METHOD-POST-blue) **`/api`**
 
 * Requires token-based authentication
 
@@ -96,13 +96,13 @@ Parameters:
 
 ### Get details of a specic product
 
-![GET](https://img.shields.io/badge/METHOD-GET-brightgreen)  `/api/:productId`  
+![GET](https://img.shields.io/badge/METHOD-GET-brightgreen) **`/api/:productId`**  
 
 * Requires token-based authentication
 
 ### Update product
 
-![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) `/api`
+![PUT](https://img.shields.io/badge/METHOD-PUT-yellow) **`/api`**
 
 * Requires token-based authentication.
 
@@ -119,7 +119,7 @@ Parameters:
 
 ### Delete product
 
-![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) `/api/:productId`
+![DELETE](https://img.shields.io/badge/METHOD-DELETE-red) **`/api/:productId`**
 
 * Requires token-based authentication
 
