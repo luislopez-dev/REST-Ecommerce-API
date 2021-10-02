@@ -113,11 +113,11 @@ Parameters:
 | Name | required  | type  | Description |
 | :---:| :-:| :-:| :-:|
 | productId | true | String | Product ID |
-| name | true | String | New product name
-| price | true | Number | New product price
-| description | true | String | New product description
-| ammount | true | Number | New product available ammount
-| imgURL | true | String | New product image URL
+| name | true | String | Product new name
+| price | true | Number | Product new price
+| description | true | String | Product new description
+| ammount | true | Number | Product new available ammount
+| imgURL | true | String | Product new image URL
 
 ### Delete product
 
