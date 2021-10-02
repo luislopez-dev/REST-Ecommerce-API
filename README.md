@@ -54,17 +54,6 @@ All the models can be found in the models directory created using mongoose.
 
 ## Endpoints
 
-### User login
-
-#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
-
-Parameters:
-
-| Name | required  | type  | Description |
-| :---:| :-:| :-:| :-:|
-| email | true  | String | User email address |
-| password | true | String | User password |
-
 ### User registration
 
 ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/register`
@@ -76,6 +65,18 @@ Parameters:
 | name | true | String | User name |
 | email | true  | String | User email address |
 | password | true | String | User password |
+
+### User login
+
+#### ![POST](https://img.shields.io/badge/METHOD-POST-blue) `/api/auth/login`
+
+Parameters:
+
+| Name | required  | type  | Description |
+| :---:| :-:| :-:| :-:|
+| email | true  | String | User email address |
+| password | true | String | User password |
+
 
 ### Create new product
 

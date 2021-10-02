@@ -23,7 +23,7 @@ exports.register = (req, res, next) => {
       })
       .then(user => {
         const token = jwt.sign({email:user.email, userId: user._id.toString()}, 'secret', {expiresIn: '24h'});
-        res.status(200).json({ok:true, message: 'User created !', token, userId: user._id.toString()});
+        res.status(200).json({ok:true, message: 'User created!', token, userId: user._id.toString()});
       })
       .catch(err => {
         if(!err.statusCode){

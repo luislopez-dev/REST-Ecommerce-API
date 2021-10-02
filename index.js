@@ -20,7 +20,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('combined', { stream:accessLogStream }));
-app.use('api/auth', authRouter);
+app.use('/api/auth', authRouter);
 app.use('/api', productRouter);
 
 app.use((error, req, res, next) => {
