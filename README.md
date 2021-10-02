@@ -62,7 +62,7 @@ All the models can be found in the models directory created using mongoose.
 
 Body parameters:
 
-| Name | required  | type  | Description |
+| Name | Required  | Type  | Description |
 | :---:| :-:| :-:| :-:|
 | name | true | String | User name |
 | email | true  | String | User email address |
@@ -74,7 +74,7 @@ Body parameters:
 
 Body parameters:
 
-| Name | required  | type  | Description |
+| Name | Required  | Type  | Description |
 | :---:| :-:| :-:| :-:|
 | email | true  | String | User email address |
 | password | true | String | User password |
@@ -88,7 +88,7 @@ Body parameters:
 
 Body parameters:
 
-| Name | required  | type  | Description |
+| Name | Required  | Type  | Description |
 | :---:| :-:| :-:| :-:|
 | name | true | String | Name of the new product
 | price | true | Number | Price of the new product
@@ -110,7 +110,7 @@ Body parameters:
 
 Body parameters:
 
-| Name | required  | type  | Description |
+| Name | Required  | Type  | Description |
 | :---:| :-:| :-:| :-:|
 | productId | true | String | Product ID |
 | name | true | String | Product new name
