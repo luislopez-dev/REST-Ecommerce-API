@@ -18,17 +18,11 @@ Ecommerce REST API to implement with any fronted platform.
 
 ## Installation
 
-1. Clone this repository 
+1. Clone this repository  `git clone https://github.com/Luis-Rene-Lopez/Ecommerce-REST-API`
 
-  `git clone https://github.com/Luis-Rene-Lopez/Ecommerce-REST-API`
+2. Go to the project `cd Ecommerce-REST-API`
 
-2. Go to the project
-
-  `cd Ecommerce-REST-API`
-
-3. Install the project dependencies 
-
-   `npm install`
+3. Install the project dependencies `npm install`
 
 ## Run
 
