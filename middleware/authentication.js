@@ -20,8 +20,10 @@ let verifyToken = (req, res, next) => {
 
   } catch (err) {
 
-    err.statusCode = 500;
-    throw err;
+    const error = new Error('Not authenticated');
+    error.statusCode = 401;
+    throw error;
+    
   }
 
   if(!docodedToken){
