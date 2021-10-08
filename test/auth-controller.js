@@ -22,7 +22,6 @@ describe('Auth controller - Login', function(){
         console.log(result);
     });
 
-    // expect(AuthController.login);
     User.findOne.restore();
 
   })

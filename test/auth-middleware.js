@@ -25,10 +25,6 @@ describe("Auth middleware", function(){
       }
     };
 
-    // jwt.verify = function(){
-    //   return { userId: 'abc' }
-    // }
-
     sinon.stub(jwt, 'verify');
     jwt.verify.returns({userId: 'abc'});
 

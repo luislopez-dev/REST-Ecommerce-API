@@ -82,17 +82,6 @@ exports.getProducts = async (req, res, next) => {
   }
 
   return res.status(200).json({total, products})
-
-  // Product.find().skip(offset).limit(limit)
-  // .then( products => {
-  //   res.status(200).json(products);
-  // })
-  // .catch(err => {
-  //   if(!err.statusCode){
-  //     err.statusCode = 500;
-  //   }
-  //   next(err);
-  // });
 }
 
 exports.deleteProduct = (req, res, next) =>{
@@ -146,15 +135,4 @@ exports.searchProduct = async (req, res, next) =>{
 
   return res.status(200).json({total, products});
 
-  // Product.find({name: {$regex: productName, $options:'i'}})
-  // .skip(offset).limit(limit)
-  // .then(products => {
-  //   res.status(200).json(products);
-  // })
-  // .catch(err => {
-  //   if(!err.statusCode){
-  //     err.statusCode = 500;
-  //   }
-  //   next(err);
-  // })
 }
