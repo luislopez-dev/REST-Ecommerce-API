@@ -108,11 +108,32 @@ Body parameters:
 | ammount | true | Number | Available ammount of the product
 | imgURL | true | String | Image URL of the new product
 
+### Query products
+
+![POST](https://img.shields.io/badge/METHOD-POST-blue) **`/api/search`**
+
+Body parameters:
+
+| Name | Required  | Type  | Description |
+| :---:| :-:| :-:| :-:|
+| name | true | String | Name of product to query
+| offset | true | Number | Defines the record to start paginating.
+| limit | true | String | Defines the max number of records to return for the response.
+
+### Get products
+
+![POST](https://img.shields.io/badge/METHOD-POST-blue) **`/api`**
+
+Body parameters:
+
+| Name | Required  | Type  | Description |
+| :---:| :-:| :-:| :-:|
+| offset | true | Number | Defines the record to start paginating.
+| limit | true | String | Defines the max number of records to return for the response.
+
 ### Get details of a specic product
 
 ![GET](https://img.shields.io/badge/METHOD-GET-brightgreen) **`/api/:productId`**  
-
-* Requires token-based authentication
 
 ### Update product
 
