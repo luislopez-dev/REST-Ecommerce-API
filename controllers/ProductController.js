@@ -34,19 +34,26 @@ exports.editProduct = (req, res, next) => {
   const description = req.body.description;
   const ammount = req.body.ammount;
   const imgURL = req.body.imgURL;
-  const productId = req.body.productId;  
+  const productId = req.body.id;  
   
   Product.findById(productId)
-  .then( product => {      
-    product.name = name;
-    product.price = price;
-    product.description = description;
-    product.ammount = ammount;
-    product.imgURL = imgURL;
-    return product.save();
+  .then( product => {  
+    if(product){
+
+     product.name = name;
+     product.price = price;
+     product.description = description;
+     product.ammount = ammount;
+     product.imgURL = imgURL;
+     return product.save();
+    }else{
+      const err = new Error("Product not found");
+      err.statusCode = 404;
+      throw err;
+    }
   })
   .then( item => {
-    res.status(200).send(true);
+    res.status(200).json({ok:true});
   })
   .catch( err => {
     if(!err.statusCode){
@@ -60,17 +67,32 @@ exports.getProducts = async (req, res, next) => {
     
   const offset = req.body.offset;
   const limit = req.body.limit;
+  let products;
+  let total;
 
-  Product.find().skip(offset).limit(limit)
-  .then( products => {
-    res.status(200).json(products);
-  })
-  .catch(err => {
-    if(!err.statusCode){
-      err.statusCode = 500;
-    }
-    next(err);
-  });
+  try {
+    
+    products = await Product.find().skip(offset).limit(limit);
+    total =  await Product.countDocuments();
+  
+  } catch (error) {
+    const err = new Error(error.message);
+    err.statusCode = 500;
+    throw err;
+  }
+
+  return res.status(200).json({total, products})
+
+  // Product.find().skip(offset).limit(limit)
+  // .then( products => {
+  //   res.status(200).json(products);
+  // })
+  // .catch(err => {
+  //   if(!err.statusCode){
+  //     err.statusCode = 500;
+  //   }
+  //   next(err);
+  // });
 }
 
 exports.deleteProduct = (req, res, next) =>{
@@ -89,7 +111,6 @@ exports.deleteProduct = (req, res, next) =>{
 
 exports.getSingleProduct = (req, res, next) =>{
   const productId = req.params.productId;
-  console.log(productId);
   Product.findById(productId)
   .then(product => {
     res.status(200).json(product);
@@ -100,4 +121,40 @@ exports.getSingleProduct = (req, res, next) =>{
     }
     next(err);
   })
+}
+
+exports.searchProduct = async (req, res, next) =>{
+
+  const offset = req.body.offset;
+  const limit = req.body.limit;
+  const productName = req.body.name;
+  let products;
+  let total;
+
+  try {
+  
+    products = await Product.find({name: {$regex: productName, $options:'i'}})
+    .skip(offset).limit(limit);
+
+    total =  await Product.countDocuments({name: {$regex: productName, $options:'i'}});
+    
+  } catch (error) {
+    const err = new Error(error.message);
+    err.statusCode = 500;
+    throw err;
+  }
+
+  return res.status(200).json({total, products});
+
+  // Product.find({name: {$regex: productName, $options:'i'}})
+  // .skip(offset).limit(limit)
+  // .then(products => {
+  //   res.status(200).json(products);
+  // })
+  // .catch(err => {
+  //   if(!err.statusCode){
+  //     err.statusCode = 500;
+  //   }
+  //   next(err);
+  // })
 }

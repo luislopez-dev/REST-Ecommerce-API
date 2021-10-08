@@ -7,7 +7,7 @@ const productController = require('../controllers/ProductController');
 router.post('/', verifyToken, productController.addProduct);
 
 // Get data of a speciic product 
-router.get('/:productId', verifyToken, productController.getSingleProduct);
+router.get('/:productId', productController.getSingleProduct);
 
 // Delete product
 router.delete('/:productId', verifyToken, productController.deleteProduct);
@@ -16,6 +16,9 @@ router.delete('/:productId', verifyToken, productController.deleteProduct);
 router.put('/', verifyToken, productController.editProduct);
 
 // Retrieve data from range of products
-router.post('/products', verifyToken, productController.getProducts);
+router.post('/products', productController.getProducts);
+
+// Retrieve data from a search query
+router.post('/search', productController.searchProduct);
 
 module.exports = router;
