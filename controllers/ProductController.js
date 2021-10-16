@@ -27,17 +27,23 @@ exports.editProduct = (req, res, next) => {
 
   const name = req.body.name;
   const price = req.body.price;
+  const brand = req.body.brand; 
+  const manufacturer = req.body.manufacturer;  
   const description = req.body.description;
   const ammount = req.body.ammount;
   const imgURL = req.body.imgURL;
-  const productId = req.body.id;  
-  
+  const productId = req.body._id;  
+
   Product.findById(productId)
+
   .then( product => {  
+    
     if(product){
 
      product.name = name;
      product.price = price;
+     product.brand = brand;
+     product.manufacturer = manufacturer;
      product.description = description;
      product.ammount = ammount;
      product.imgURL = imgURL;
@@ -81,7 +87,7 @@ exports.getProducts = async (req, res, next) => {
 }
 
 exports.deleteProduct = (req, res, next) =>{
-  const productId = req.params.productId;
+  const productId = req.params._id;
   Product.findByIdAndRemove(productId)
   .then(item => {
     res.status(200).send(true);
@@ -95,7 +101,7 @@ exports.deleteProduct = (req, res, next) =>{
 }
 
 exports.getSingleProduct = (req, res, next) =>{
-  const productId = req.params.productId;
+  const productId = req.params._id;
   Product.findById(productId)
   .then(product => {
     res.status(200).json(product);

@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const SECRET_KEY = process.env.SECRET_KEY;
 
 exports.register = (req, res, next) => {
   
@@ -22,7 +25,7 @@ exports.register = (req, res, next) => {
         return user.save();
       })
       .then(user => {
-        const token = jwt.sign({email:user.email, userId: user._id.toString()}, 'secret', {expiresIn: '24h'});
+        const token = jwt.sign({email:user.email, userId: user._id.toString()}, SECRET_KEY, {algorithm: "HS256", expiresIn: '24h'});
         res.status(200).json({ok:true, message: 'User created!', token, userId: user._id.toString()});
       })
       .catch(err => {
@@ -45,7 +48,7 @@ exports.login = async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     let loadedUser;
-    
+  
     User.findOne({email:email})
     .then( user => {
       if(!user){
@@ -63,7 +66,7 @@ exports.login = async (req, res, next) => {
         throw error;
       }
       let token = jwt.sign({userId: loadedUser._id.toString()}, 
-                            'secret', {expiresIn: '24h'});
+      SECRET_KEY, {algorithm: "HS256", expiresIn: '24h'});
       res.status(200).send({ok:true, token, userId: loadedUser._id.toString()});
     })
     .catch(err => {  
