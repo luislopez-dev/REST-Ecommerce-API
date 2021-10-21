@@ -123,7 +123,7 @@ Body parameters:
 
 | Name | Required  | Type  | Description |
 | :---:| :-:| :-:| :-:|
-| name | true | String | Name of product to query
+| item | true | String | Name of product to query
 | offset | true | Number | Defines the record to start paginating.
 | limit | true | String | Defines the max number of records to return for the response.
 

@@ -87,7 +87,8 @@ exports.getProducts = async (req, res, next) => {
 }
 
 exports.deleteProduct = (req, res, next) =>{
-  const productId = req.params._id;
+
+  const productId = req.params.productId;
   Product.findByIdAndRemove(productId)
   .then(item => {
     res.status(200).send(true);
@@ -101,7 +102,7 @@ exports.deleteProduct = (req, res, next) =>{
 }
 
 exports.getSingleProduct = (req, res, next) =>{
-  const productId = req.params._id;
+  const productId = req.params.productId;
   Product.findById(productId)
   .then(product => {
     res.status(200).json(product);
@@ -118,7 +119,7 @@ exports.searchProduct = async (req, res, next) =>{
 
   const offset = req.body.offset;
   const limit = req.body.limit;
-  const productName = req.body.name;
+  const productName = req.body.item;
   let products;
   let total;
 
