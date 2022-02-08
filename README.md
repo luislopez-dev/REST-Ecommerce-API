@@ -2,7 +2,7 @@
 
 ![alt text](https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/15921/secure-rest-api-in-nodejs-18f43b3033c239da5d2525cfd9fdc98f.png)
 
-## Table of contents
+## Table of contents.
 
 * [Introduction](#introduction)
 * [Technology](#technology)
