@@ -18,6 +18,7 @@ Ecommerce REST API to implement with any fronted platform.
 
 ## Technology
 
+* TypeScript
 * Node.js
 * Express
 * MongoDB

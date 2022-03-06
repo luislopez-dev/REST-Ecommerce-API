@@ -1,20 +1,5 @@
 require('dotenv').config()
 
-// const express = require('express');
-// const path = require('path');
-// const app = express();
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// const productRouter = require('./routes/ProductRouter');
-// const authRouter = require('./routes/auth');
-// const cors = require('cors');
-// const MONGO_URL = process.env.MONGO_URL;
-// const PORT = process.env.PORT;
-// const helmet = require('helmet');
-// const morgan = require('morgan');
-// const fs = require('fs');
-// const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
-
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
@@ -23,16 +8,14 @@ import productRouter from './routes/ProductRouter';
 import authRouter from './routes/auth';
 import cors from 'cors';
 
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URL = process.env.MONGO_URL || "";
 const PORT = process.env.PORT;
 import helmet from 'helmet';
 import morgan from 'morgan';
 import fs from "fs";
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
 
-
 const app = express();
-
 
 app.use(helmet());
 app.use(cors())
@@ -42,7 +25,7 @@ app.use(morgan('combined', { stream:accessLogStream }));
 app.use('/api/auth', authRouter);
 app.use('/api', productRouter);
 
-app.use((error, req, res, next) => {
+app.use((error:any, req:any, res:any, next:any) => {
   const status = error.statusCode || 500;
   const message = error.message;
   const data = error.data;

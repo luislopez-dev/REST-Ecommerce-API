@@ -1,15 +1,20 @@
 require('dotenv').config();
 
 import Jwt from "jsonwebtoken";
-const SECRET_KEY = process.env.SECRET_KEY;
 
-const verifyToken = (req, res, next) => {
+const SECRET_KEY = process.env.SECRET_KEY || "super key";
+
+class AuthError extends Error {
+  statusCode: number | undefined
+}
+
+const verifyToken = (req:any, res:any, next:any) => {
 
   const authHeader = req.get('Authorization');
 
   if(!authHeader) {
 
-    const error = new Error('Not authenticated');
+    const error = new AuthError('Not authenticated');
     error.statusCode = 401;
     throw error;
   }
@@ -23,19 +28,19 @@ const verifyToken = (req, res, next) => {
 
   } catch (err) {
 
-    const error = new Error('Not authenticated');
+    const error = new AuthError('Not authenticated');
     error.statusCode = 401;
     throw error;
     
   }
 
   if(!docodedToken){
-    const error = new Error('Not authenticated');
+    const error = new AuthError('Not authenticated');
     error.statusCode = 401;
     throw error;
   }
 
-  req.userId = docodedToken.userId;
+  // req.userId = docodedToken.userId;
 
   next();
 }

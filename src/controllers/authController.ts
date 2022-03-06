@@ -1,27 +1,26 @@
 require('dotenv').config();
 
-// const User = require('../models/User');
-// const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcryptjs');
-// const SECRET_KEY = process.env.SECRET_KEY;
-
 import User from '../models/User';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
-const SECRET_KEY = process.env.SECRET_KEY;
+const SECRET_KEY = process.env.SECRET_KEY || "my key";
 
-const register =  (req, res, next) => {
+class ControllerError extends Error {
+  statusCode: number | undefined
+}
+
+const register =  (req:any, res:any, next:any) => {
   
   const email = req.body.email;
   const password = req.body.password;
   const name = req.body.name;
 
   User.findOne({ email:email })
-    .then( userDoc => {
+    .then( (userDoc:any) => {
       
       if(userDoc){
-        const error = new Error('User already exists');
+        const error = new ControllerError('User already exists');
         error.statusCode = 409;
         throw error; 
       }
@@ -30,7 +29,7 @@ const register =  (req, res, next) => {
         const user = new User({ email: email, password: hashedPw, name:name });
         return user.save();
       })
-      .then(user => {
+      .then( (user:any) => {
         const token = jwt.sign({email:user.email, userId: user._id.toString()}, SECRET_KEY, {algorithm: "HS256", expiresIn: '24h'});
         res.status(200).json({ok:true, message: 'User created!', token, userId: user._id.toString()});
       })
@@ -41,7 +40,7 @@ const register =  (req, res, next) => {
         next(err);
       })
     })
-    .catch( err => {
+    .catch( (err:any) => {
       if(!err.statusCode){
         err.statusCode = 500;          
       }
@@ -49,25 +48,25 @@ const register =  (req, res, next) => {
     });
 }
 
-const login = async (req, res, next) => {
+const login = async (req:any, res:any, next:any) => {
     
     const email = req.body.email;
     const password = req.body.password;
-    let loadedUser;
+    let loadedUser:any;
   
     User.findOne({email:email})
-    .then( user => {
+    .then( (user: any) => {
       if(!user){
-        const error = new Error("User not found");
+        const error = new ControllerError("User not found");
         error.statusCode = 409;
         throw error; 
       }
       loadedUser = user;
       return bcrypt.compare(password, user.password);                   
     })
-    .then(isEqual => {
+    .then((isEqual:any) => {
       if(!isEqual){                      
-        const error = new Error('Wrong password!');
+        const error = new ControllerError('Wrong password!');
         error.statusCode = 401;
         throw error;
       }
@@ -75,7 +74,7 @@ const login = async (req, res, next) => {
       SECRET_KEY, {algorithm: "HS256", expiresIn: '24h'});
       res.status(200).send({ok:true, token, userId: loadedUser._id.toString()});
     })
-    .catch(err => {  
+    .catch((err:any) => {  
       if(!err.statusCode){
         err.statusCode = 500;          
       }

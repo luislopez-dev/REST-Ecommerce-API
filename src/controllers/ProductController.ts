@@ -1,8 +1,10 @@
-// const Product = require('../models/Product');
-
 import Product from "../models/Product";
 
-const addProduct = (req, res, next) => {
+class ControllerError extends Error {
+  statusCode: number | undefined
+}
+
+const addProduct = (req:any, res:any, next:any) => {
 
   const name = req.body.name;
   const brand = req.body.brand;
@@ -14,10 +16,10 @@ const addProduct = (req, res, next) => {
   const product = new Product({name, brand, manufacturer, price, description, ammount, imgURL});
 
   product.save()
-  .then( item => {
+  .then( (item:any) => {
     res.status(201).send(true);
   })
-  .catch(err => {
+  .catch((err:any) => {
     if(!err.statusCode){
       err.statusCode = 500;          
     }
@@ -25,7 +27,7 @@ const addProduct = (req, res, next) => {
   });
 }
 
-const editProduct = (req, res, next) => {
+const editProduct = (req:any, res:any, next:any) => {
 
   const name = req.body.name;
   const price = req.body.price;
@@ -38,7 +40,7 @@ const editProduct = (req, res, next) => {
 
   Product.findById(productId)
 
-  .then( product => {  
+  .then((product:any) => {  
     
     if(product){
 
@@ -51,15 +53,15 @@ const editProduct = (req, res, next) => {
      product.imgURL = imgURL;
      return product.save();
     }else{
-      const err = new Error("Product not found");
+      const err = new ControllerError("Product not found");
       err.statusCode = 404;
       throw err;
     }
   })
-  .then( item => {
+  .then( () => {
     res.status(200).json({ok:true});
   })
-  .catch( err => {
+  .catch((err:any) => {
     if(!err.statusCode){
       err.statusCode = 500;          
     }
@@ -67,7 +69,7 @@ const editProduct = (req, res, next) => {
   });
 }
 
-const getProducts = async (req, res, next) => {
+const getProducts = async (req:any, res:any, next:any) => {
     
   const offset = req.body.offset;
   const limit = req.body.limit;
@@ -80,7 +82,7 @@ const getProducts = async (req, res, next) => {
     total =  await Product.countDocuments();
   
   } catch (error) {
-    const err = new Error(error.message);
+    const err = new ControllerError(error.message);
     err.statusCode = 500;
     throw err;
   }
@@ -88,14 +90,14 @@ const getProducts = async (req, res, next) => {
   return res.status(200).json({total, products})
 }
 
-const deleteProduct = (req, res, next) =>{
+const deleteProduct = (req:any, res:any, next:any) =>{
 
   const productId = req.params.productId;
   Product.findByIdAndRemove(productId)
-  .then(item => {
+  .then((item:any) => {
     res.status(200).send(true);
   })
-  .catch(err => {
+  .catch((err:any) => {
     if(!err.statusCode){
       err.statusCode = 500;
     }
@@ -103,13 +105,13 @@ const deleteProduct = (req, res, next) =>{
   });
 }
 
-const getSingleProduct = (req, res, next) =>{
+const getSingleProduct = (req:any, res:any, next:any) =>{
   const productId = req.params.productId;
   Product.findById(productId)
-  .then(product => {
+  .then((product:any) => {
     res.status(200).json(product);
   })
-  .catch(err => {
+  .catch((err:any) => {
     if(!err.statusCode){
       err.statusCode = 500;
     }
@@ -117,7 +119,7 @@ const getSingleProduct = (req, res, next) =>{
   })
 }
 
-const searchProduct = async (req, res, next) =>{
+const searchProduct = async (req:any, res:any, next:any) =>{
 
   const offset = req.body.offset;
   const limit = req.body.limit;
@@ -133,7 +135,7 @@ const searchProduct = async (req, res, next) =>{
     total =  await Product.countDocuments({name: {$regex: productName, $options:'i'}});
     
   } catch (error) {
-    const err = new Error(error.message);
+    const err = new ControllerError(error.message);
     err.statusCode = 500;
     throw err;
   }
