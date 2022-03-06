@@ -1,11 +1,17 @@
 require('dotenv').config();
 
-const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+// const User = require('../models/User');
+// const jwt = require('jsonwebtoken');
+// const bcrypt = require('bcryptjs');
+// const SECRET_KEY = process.env.SECRET_KEY;
+
+import User from '../models/User';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+
 const SECRET_KEY = process.env.SECRET_KEY;
 
-exports.register = (req, res, next) => {
+const register =  (req, res, next) => {
   
   const email = req.body.email;
   const password = req.body.password;
@@ -43,7 +49,7 @@ exports.register = (req, res, next) => {
     });
 }
 
-exports.login = async (req, res, next) => {
+const login = async (req, res, next) => {
     
     const email = req.body.email;
     const password = req.body.password;
@@ -76,3 +82,5 @@ exports.login = async (req, res, next) => {
       next(err);
     });
 }
+
+export {login, register};

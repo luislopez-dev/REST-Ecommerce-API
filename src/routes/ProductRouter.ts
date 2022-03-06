@@ -1,24 +1,25 @@
-const { verifyToken } = require('../middleware/authentication');
-const express = require('express');
-const router = express.Router();
-const productController = require('../controllers/ProductController');
+import verifyToken from '../middleware/authentication' 
+import Router from "express";
+import * as productController from '../controllers/ProductController';
+
+const router = Router();
 
 // Create a new product
-router.post('/', verifyToken, productController.addProduct);
+router.post('/', verifyToken, productController.default.addProduct);
 
 // Get data of a speciic product 
-router.get('/:productId', productController.getSingleProduct);
+router.get('/:productId', productController.default.getSingleProduct);
 
 // Delete product
-router.delete('/:productId', verifyToken, productController.deleteProduct);
+router.delete('/:productId', verifyToken, productController.default.deleteProduct);
 
 // Update product
-router.put('/', verifyToken, productController.editProduct);
+router.put('/', verifyToken, productController.default.editProduct);
 
 // Retrieve data from range of products
-router.post('/products', productController.getProducts);
+router.post('/products', productController.default.getProducts);
 
 // Retrieve data from a search query
-router.post('/search', productController.searchProduct);
+router.post('/search', productController.default.searchProduct);
 
-module.exports = router;
+export default router;

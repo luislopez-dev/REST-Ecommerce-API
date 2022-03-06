@@ -1,6 +1,8 @@
-const Product = require('../models/Product');
+// const Product = require('../models/Product');
 
-exports.addProduct = (req, res, next) => {
+import Product from "../models/Product";
+
+const addProduct = (req, res, next) => {
 
   const name = req.body.name;
   const brand = req.body.brand;
@@ -23,7 +25,7 @@ exports.addProduct = (req, res, next) => {
   });
 }
 
-exports.editProduct = (req, res, next) => {
+const editProduct = (req, res, next) => {
 
   const name = req.body.name;
   const price = req.body.price;
@@ -65,7 +67,7 @@ exports.editProduct = (req, res, next) => {
   });
 }
 
-exports.getProducts = async (req, res, next) => {
+const getProducts = async (req, res, next) => {
     
   const offset = req.body.offset;
   const limit = req.body.limit;
@@ -86,7 +88,7 @@ exports.getProducts = async (req, res, next) => {
   return res.status(200).json({total, products})
 }
 
-exports.deleteProduct = (req, res, next) =>{
+const deleteProduct = (req, res, next) =>{
 
   const productId = req.params.productId;
   Product.findByIdAndRemove(productId)
@@ -101,7 +103,7 @@ exports.deleteProduct = (req, res, next) =>{
   });
 }
 
-exports.getSingleProduct = (req, res, next) =>{
+const getSingleProduct = (req, res, next) =>{
   const productId = req.params.productId;
   Product.findById(productId)
   .then(product => {
@@ -115,7 +117,7 @@ exports.getSingleProduct = (req, res, next) =>{
   })
 }
 
-exports.searchProduct = async (req, res, next) =>{
+const searchProduct = async (req, res, next) =>{
 
   const offset = req.body.offset;
   const limit = req.body.limit;
@@ -139,3 +141,5 @@ exports.searchProduct = async (req, res, next) =>{
   return res.status(200).json({total, products});
 
 }
+
+export default {addProduct, editProduct, getProducts, deleteProduct, getSingleProduct, searchProduct}

@@ -1,9 +1,9 @@
 require('dotenv').config();
 
-const jwt = require("jsonwebtoken");
+import Jwt from "jsonwebtoken";
 const SECRET_KEY = process.env.SECRET_KEY;
 
-let verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
 
   const authHeader = req.get('Authorization');
 
@@ -19,7 +19,7 @@ let verifyToken = (req, res, next) => {
 
   try {
 
-    docodedToken = jwt.verify(token, SECRET_KEY);
+    docodedToken = Jwt.verify(token, SECRET_KEY);
 
   } catch (err) {
 
@@ -40,4 +40,4 @@ let verifyToken = (req, res, next) => {
   next();
 }
 
-module.exports = { verifyToken };
+export default verifyToken;
