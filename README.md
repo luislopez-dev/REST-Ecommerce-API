@@ -65,7 +65,7 @@ All the models can be found in the models directory created using mongoose.
 
 To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
 
-* MONGO_URI=  This is the connection string of your MongoDB Atlas database.
+* MONGO_URL=  This is the connection string of your MongoDB Atlas database.
 
 * PORT=  This is the port number for running the Node.js server
 
