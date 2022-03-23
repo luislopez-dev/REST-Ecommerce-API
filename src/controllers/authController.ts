@@ -2,25 +2,24 @@ require('dotenv').config();
 
 import UserModel from '../models/User';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
+import User from '../interfaces/User';
+import { HttpErr } from '../interfaces/HttpErr';
 
 const SECRET_KEY = process.env.SECRET_KEY || "my key";
 
-class ControllerError extends Error {
-  statusCode: number | undefined
-}
-
 const register =  (req:any, res:any, next:any) => {
    
-  const email = req.body.email;
-  const password = req.body.password;
-  const name = req.body.name;
+  const params = req.body as User; 
+  const email = params.email;
+  const password = params.password;
+  const name = params.name;
 
   UserModel.findOne({ email:email })
-    .then( (userDoc:any) => {
+    .then( (userDoc:User) => {
       
       if(userDoc){
-        const error = new ControllerError('User already exists');
+        const error = new HttpErr('User already exists');
         error.statusCode = 409;
         throw error; 
       }
@@ -40,7 +39,7 @@ const register =  (req:any, res:any, next:any) => {
         next(err);
       })
     })
-    .catch( (err:any) => {
+    .catch( (err:any) => {      
       if(!err.statusCode){
         err.statusCode = 500;          
       }
@@ -50,14 +49,15 @@ const register =  (req:any, res:any, next:any) => {
 
 const login = async (req:any, res:any, next:any) => {
     
-    const email = req.body.email;
-    const password = req.body.password;
-    let loadedUser:any;
+    const params = req.body as User;
+    const email = params.email;
+    const password = params.password;
+    let loadedUser: User;
   
     UserModel.findOne({email:email})
-    .then( (user: any) => {
+    .then( (user: User) => {
       if(!user){
-        const error = new ControllerError("User not found");
+        const error = new HttpErr("User not found");
         error.statusCode = 409;
         throw error; 
       }
@@ -66,7 +66,7 @@ const login = async (req:any, res:any, next:any) => {
     })
     .then((isEqual:any) => {
       if(!isEqual){                      
-        const error = new ControllerError('Wrong password!');
+        const error = new HttpErr('Wrong password!');
         error.statusCode = 401;
         throw error;
       }

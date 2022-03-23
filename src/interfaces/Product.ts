@@ -1,11 +1,12 @@
 export interface Product{
 
-    name: String,
-    brand: String,
-    manufacturer: String,
+    name: string,
+    brand: string,
+    manufacturer: string,
     price: Number,
-    description: String,
+    description: string,
     ammount: Number,
-    imgURL: String,
-    
+    imgURL: string,
+    _id: string,
+    save(): void,
 }

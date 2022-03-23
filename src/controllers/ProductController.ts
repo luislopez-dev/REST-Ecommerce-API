@@ -2,16 +2,16 @@ import ProductModel from "../models/Product";
 import { Product } from "../interfaces/Product";
 import { HttpErr } from "../interfaces/HttpErr";
 
-
 const addProduct = (req:any, res:any, next:any) => {
 
-  const name = req.body.name;
-  const brand = req.body.brand;
-  const manufacturer = req.body.manufacturer;  
-  const price = req.body.price; 
-  const description = req.body.description;
-  const ammount = req.body.ammount;
-  const imgURL = req.body.imgURL;
+  const params = req.body as Product;
+  const name = params.name;
+  const brand = params.brand;
+  const manufacturer = params.manufacturer;  
+  const price = params.price; 
+  const description = params.description;
+  const ammount = params.ammount;
+  const imgURL = params.imgURL;
   const product = new ProductModel({name, brand, manufacturer, price, description, ammount, imgURL});
 
   product.save()
@@ -28,18 +28,19 @@ const addProduct = (req:any, res:any, next:any) => {
 
 const editProduct = (req:any, res:any, next:any) => {
 
-  const name = req.body.name;
-  const price = req.body.price;
-  const brand = req.body.brand; 
-  const manufacturer = req.body.manufacturer;  
-  const description = req.body.description;
-  const ammount = req.body.ammount;
-  const imgURL = req.body.imgURL;
-  const productId = req.body._id;  
+  const params = req.body as Product;
+  const name = params.name;
+  const price = params.price;
+  const brand = params.brand; 
+  const manufacturer = params.manufacturer;  
+  const description = params.description;
+  const ammount = params.ammount;
+  const imgURL = params.imgURL;
+  const productId = params._id;  
 
   ProductModel.findById(productId)
 
-  .then((product:any) => {  
+  .then((product:Product) => {  
     
     if(product){
 
@@ -70,8 +71,10 @@ const editProduct = (req:any, res:any, next:any) => {
 
 const getProducts = async (req:any, res:any, next:any) => {
     
-  const offset = req.body.offset;
-  const limit = req.body.limit;
+  type RequestParams = {offset:BigInt, limit: BigInt}
+  const params = req.body as RequestParams;
+  const offset = params.offset;
+  const limit = params.limit;
   let products;
   let total;
 
@@ -86,7 +89,6 @@ const getProducts = async (req:any, res:any, next:any) => {
       err.statusCode = 500;
       throw err;
     }
- 
   }
 
   return res.status(200).json({total, products})
@@ -94,9 +96,10 @@ const getProducts = async (req:any, res:any, next:any) => {
 
 const deleteProduct = (req:any, res:any, next:any) =>{
 
-  const productId = req.params.productId;
+  const params = req.params as Product;
+  const productId = params._id;
   ProductModel.findByIdAndRemove(productId)
-  .then((item:any) => {
+  .then(() => {
     res.status(200).send(true);
   })
   .catch((err:any) => {
@@ -108,7 +111,9 @@ const deleteProduct = (req:any, res:any, next:any) =>{
 }
 
 const getSingleProduct = (req:any, res:any, next:any) =>{
-  const productId = req.params.productId;
+
+  const params = req.params as Product;
+  const productId = params._id;
   ProductModel.findById(productId)
   .then((product:any) => {
     res.status(200).json(product);
@@ -123,8 +128,11 @@ const getSingleProduct = (req:any, res:any, next:any) =>{
 
 const searchProduct = async (req:any, res:any, next:any) =>{
 
-  const offset = req.body.offset;
-  const limit = req.body.limit;
+  type RequestParams = {offset:BigInt, limit: BigInt}
+  const params = req.body as RequestParams;
+  const offset = params.offset;
+  const limit = params.limit;
+
   const productName = req.body.item;
   let products;
   let total;

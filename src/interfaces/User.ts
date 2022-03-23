@@ -1,7 +1,10 @@
 export default interface User{
 
-    name: String,
-    email: String,
-    password: String,
+    id: string,
+    _id: string
+    name: string,
+    email: string,
+    password: string,
+    token:string
     
 }
