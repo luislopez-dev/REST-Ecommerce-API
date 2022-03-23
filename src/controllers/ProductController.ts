@@ -1,8 +1,7 @@
-import Product from "../models/Product";
+import ProductModel from "../models/Product";
+import { Product } from "../interfaces/Product";
+import { HttpErr } from "../interfaces/HttpErr";
 
-class ControllerError extends Error {
-  statusCode: number | undefined
-}
 
 const addProduct = (req:any, res:any, next:any) => {
 
@@ -13,7 +12,7 @@ const addProduct = (req:any, res:any, next:any) => {
   const description = req.body.description;
   const ammount = req.body.ammount;
   const imgURL = req.body.imgURL;
-  const product = new Product({name, brand, manufacturer, price, description, ammount, imgURL});
+  const product = new ProductModel({name, brand, manufacturer, price, description, ammount, imgURL});
 
   product.save()
   .then( (item:any) => {
@@ -38,7 +37,7 @@ const editProduct = (req:any, res:any, next:any) => {
   const imgURL = req.body.imgURL;
   const productId = req.body._id;  
 
-  Product.findById(productId)
+  ProductModel.findById(productId)
 
   .then((product:any) => {  
     
@@ -53,7 +52,7 @@ const editProduct = (req:any, res:any, next:any) => {
      product.imgURL = imgURL;
      return product.save();
     }else{
-      const err = new ControllerError("Product not found");
+      const err = new HttpErr("Product not found");
       err.statusCode = 404;
       throw err;
     }
@@ -78,13 +77,16 @@ const getProducts = async (req:any, res:any, next:any) => {
 
   try {
     
-    products = await Product.find().skip(offset).limit(limit);
-    total =  await Product.countDocuments();
+    products = await ProductModel.find().skip(offset).limit(limit);
+    total =  await ProductModel.countDocuments();
   
   } catch (error) {
-    const err = new ControllerError(error.message);
-    err.statusCode = 500;
-    throw err;
+    if (error instanceof Error) {      
+      const err = new HttpErr(error.message);
+      err.statusCode = 500;
+      throw err;
+    }
+ 
   }
 
   return res.status(200).json({total, products})
@@ -93,7 +95,7 @@ const getProducts = async (req:any, res:any, next:any) => {
 const deleteProduct = (req:any, res:any, next:any) =>{
 
   const productId = req.params.productId;
-  Product.findByIdAndRemove(productId)
+  ProductModel.findByIdAndRemove(productId)
   .then((item:any) => {
     res.status(200).send(true);
   })
@@ -107,7 +109,7 @@ const deleteProduct = (req:any, res:any, next:any) =>{
 
 const getSingleProduct = (req:any, res:any, next:any) =>{
   const productId = req.params.productId;
-  Product.findById(productId)
+  ProductModel.findById(productId)
   .then((product:any) => {
     res.status(200).json(product);
   })
@@ -129,15 +131,17 @@ const searchProduct = async (req:any, res:any, next:any) =>{
 
   try {
   
-    products = await Product.find({name: {$regex: productName, $options:'i'}})
+    products = await ProductModel.find({name: {$regex: productName, $options:'i'}})
     .skip(offset).limit(limit);
 
-    total =  await Product.countDocuments({name: {$regex: productName, $options:'i'}});
+    total =  await ProductModel.countDocuments({name: {$regex: productName, $options:'i'}});
     
-  } catch (error) {
-    const err = new ControllerError(error.message);
-    err.statusCode = 500;
-    throw err;
+  } catch (error) {   
+    if(error instanceof Error){
+     const err = new HttpErr(error.message);
+     err.statusCode = 500;
+     throw err;
+    }
   }
 
   return res.status(200).json({total, products});

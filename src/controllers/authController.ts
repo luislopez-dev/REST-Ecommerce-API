@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-import User from '../models/User';
+import UserModel from '../models/User';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
@@ -11,12 +11,12 @@ class ControllerError extends Error {
 }
 
 const register =  (req:any, res:any, next:any) => {
-  
+   
   const email = req.body.email;
   const password = req.body.password;
   const name = req.body.name;
 
-  User.findOne({ email:email })
+  UserModel.findOne({ email:email })
     .then( (userDoc:any) => {
       
       if(userDoc){
@@ -26,7 +26,7 @@ const register =  (req:any, res:any, next:any) => {
       }
       bcrypt.hash(password, 12)
       .then(hashedPw => {
-        const user = new User({ email: email, password: hashedPw, name:name });
+        const user = new UserModel({ email: email, password: hashedPw, name:name });
         return user.save();
       })
       .then( (user:any) => {
@@ -54,7 +54,7 @@ const login = async (req:any, res:any, next:any) => {
     const password = req.body.password;
     let loadedUser:any;
   
-    User.findOne({email:email})
+    UserModel.findOne({email:email})
     .then( (user: any) => {
       if(!user){
         const error = new ControllerError("User not found");
